@@ -3,15 +3,15 @@
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-25.11";
-    flake-utils.url = "github:numtide/flake-utils";
+    flake-lib.url = "github:jgus-org/flake-lib/v1";
   };
 
   outputs =
     { self
     , nixpkgs
-    , flake-utils
+    , flake-lib
     , ...
-    }: flake-utils.lib.eachDefaultSystem (system:
+    }: flake-lib.lib.eachDefaultSystem (system:
     let
       pkgs = nixpkgs.legacyPackages.${system};
       pythonPackages = pkgs.python3Packages;
